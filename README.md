@@ -34,6 +34,7 @@ Define the application dependencies. <br />
  1. Create a directory for the project:  <br />
 `mkdir composetest`  <br />
  `cd composetest` <br />
+ ![image](https://user-images.githubusercontent.com/78828566/161797124-583ff6ab-df66-4dde-b2b9-b2749074b31f.png)
  2. Create a file called `app.py` in your project directory and paste this in:
 ```
 import time
@@ -111,18 +112,40 @@ services:
 
 ### Step 4: Build and run your app with Compose
 1. From your project directory, start up your application by running `docker-compose up`.
-
 ![image](https://user-images.githubusercontent.com/78828566/161816274-4deb965a-447b-40d8-bcb4-15c347374abc.png)
+![image](https://user-images.githubusercontent.com/78828566/161800321-22fe53e5-2b11-40cc-923e-59760516eb29.png)
 Compose pulls a Redis image, builds an image for your code, and starts the services you defined. In this case, the code is statically copied into the image at build time.
 
-2. Enter http://localhost:8000/ in a browser to see the application running. If this doesn’t resolve, you can also try http://127.0.0.1:8000.
 
+2. Enter http://localhost:8000/ in a browser to see the application running. 
+If this doesn’t resolve, you can also try http://127.0.0.1:8000.
 You should see a message in your browser saying:
-
-
-
-
-
-![image](https://user-images.githubusercontent.com/78828566/161797124-583ff6ab-df66-4dde-b2b9-b2749074b31f.png)
-![image](https://user-images.githubusercontent.com/78828566/161800321-22fe53e5-2b11-40cc-923e-59760516eb29.png)
 ![image](https://user-images.githubusercontent.com/78828566/161811461-9cfe4480-cee2-4a2f-a545-58e353784ac1.png)
+
+3. Refresh the page.
+The number should increment.
+
+4. Switch to another terminal window, and type `docker image ls` to list local images.
+Listing images at this point should return `redis` and `web`.
+![image](https://user-images.githubusercontent.com/78828566/161817246-a48ed78e-7767-4db3-9fc3-d9bd3005cfdf.png)
+
+5. Stop the application, either by running `docker-compose down` from within your project directory in the second terminal, or by hitting CTRL+C in the original terminal where you started the app.
+
+
+### Step 5: Experiment with some other commands
+- If you want to run your services in the background, you can pass the `-d` flag (for “detached” mode) to `docker-compose up` and use `docker-compose ps` to see what is currently running.
+- The `docker-compose run` command allows you to run one-off commands for your services. For example, to see what environment variables are available to the `web` service:
+```
+ docker-compose run web env
+```
+- If you started Compose with `docker-compose up -d`, stop your services once you’ve finished with them:
+```
+docker-compose stop
+```
+- You can bring everything down, removing the containers entirely, with the `down` command. Pass `--volumes` to also remove the data volume used by the Redis container:
+```
+docker-compose down --volumes
+```
+
+Congratulations! At this point, you have seen the basics of how Compose works.
+FULL documentation [here](https://docs.docker.com/compose/gettingstarted/)
