@@ -14,7 +14,9 @@ She Code Africa Cloud School Program- Technical Assesment
 
 ## EXERCISE 2:
 - Install docker on your machine 
+```diff
 - Done
+```
 - Create a docker hub account
 - Done
 - Create a Github repository called `SCA Cloud School Application`
