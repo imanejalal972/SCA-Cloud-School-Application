@@ -18,9 +18,13 @@ She Code Africa Cloud School Program- Technical Assesment
 - Done
 ```
 - Create a docker hub account
+```diff
 - Done
+```
 - Create a Github repository called `SCA Cloud School Application`
+```diff
 - Done
+```
 - Create a Dockerfile which displays a webpage (in your preffered language ) and a text: ``Welcome to SCA Cloud School Application``
 ![image](https://user-images.githubusercontent.com/78828566/161797124-583ff6ab-df66-4dde-b2b9-b2749074b31f.png)
 
