@@ -51,8 +51,8 @@ She Code Africa Cloud School Program- Technical Assesment
 Exercise2 ==>
 ### Step 1: Setup
 Define the application dependencies. <br />
- 1. Create a directory for the project:
-`mkdir composetest`
- `cd composetest`
+ 1. Create a directory for the project:  <br />
+`mkdir composetest`  <br />
+ `cd composetest` <br />
  3. Create a file called app.py in your project directory and paste this in:
  4. Create another file called requirements.txt in your project directory and paste this in:
