@@ -147,5 +147,26 @@ docker-compose stop
 docker-compose down --volumes
 ```
 
-Congratulations! At this point, you have seen the basics of how Compose works.
+At this point, you have seen the basics of how Compose works.
 FULL documentation [here](https://docs.docker.com/compose/gettingstarted/)
+
+### Docker Build
+1. Build with PATH
+`docker build .`
+![image](https://user-images.githubusercontent.com/78828566/161822290-1834ecf6-eb54-4a82-8be4-909b17b65e6a.png)
+
+
+2. Build with URL
+`docker build github.com/creack/docker-firefox`
+![image](https://user-images.githubusercontent.com/78828566/161822559-383a22ad-b594-4d66-82e0-169da1ff10f6.png)
+
+
+3. Build with -
+`docker build - < Dockerfile`
+This will read a Dockerfile from `STDIN` without context. Due to the lack of a context, no contents of any local directory will be sent to the Docker daemon. Since there is no context, a Dockerfile `ADD` only works if it refers to a remote URL.
+`docker build - < context.tar.gz`
+This will build an image for a compressed context read from `STDIN`. Supported formats are: bzip2, gzip and xz. 
+
+FULL documentation [here](https://docs.docker.com/engine/reference/commandline/build/)
+
+``
