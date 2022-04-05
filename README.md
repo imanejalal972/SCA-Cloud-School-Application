@@ -169,6 +169,16 @@ This will build an image for a compressed context read from `STDIN`. Supported f
 
 FULL documentation [here](https://docs.docker.com/engine/reference/commandline/build/)
 
-``
+
 
 Another lab about Docker [here](https://github.com/imanejalal972/AgileSoftwareEngineeringAndDevOps-CSC4307-Docker)
+
+## WHEN to Contribute? ##
+You are ***always welcome*** to contribute.
+
+## HOW to Contribute? ##
+- [x] Fork this repository.
+- [x] Do your desired changes.
+- [x] Make a pull request.
+
+``
