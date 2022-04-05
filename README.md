@@ -19,10 +19,7 @@ She Code Africa Cloud School Program- Technical Assesment
 ```
 
 - Create a docker hub account
-- - [x]
-```diff
-- Done
-```
+[x]```diff - Done ```
 
 - Create a Github repository called `SCA Cloud School Application`
 ```diff
