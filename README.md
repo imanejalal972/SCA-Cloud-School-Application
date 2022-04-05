@@ -115,3 +115,7 @@ This tells Docker to:
 * Add metadata to the image to describe that the container is listening on port 5000
 * Copy the current directory `.` in the project to the workdir `.` in the image.
 * Set the default command for the container to `flask run`.
+
+![image](https://user-images.githubusercontent.com/78828566/161797124-583ff6ab-df66-4dde-b2b9-b2749074b31f.png)
+![image](https://user-images.githubusercontent.com/78828566/161800321-22fe53e5-2b11-40cc-923e-59760516eb29.png)
+![image](https://user-images.githubusercontent.com/78828566/161811461-9cfe4480-cee2-4a2f-a545-58e353784ac1.png)
