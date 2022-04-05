@@ -82,4 +82,36 @@ def hello():
 ```
 ![image](https://user-images.githubusercontent.com/78828566/161814097-07f8420d-ac39-4826-afb2-a47a486ad169.png)
 
- 4. Create another file called requirements.txt in your project directory and paste this in:
+ 3. Create another file called `requirements.txt` in your project directory and paste this in:
+```
+flask
+redis
+```
+![image](https://user-images.githubusercontent.com/78828566/161814493-fb46b33b-edb8-4219-9041-0eb33b5f6192.png)
+
+### Step 2: Create a Dockerfile
+In this step, you write a Dockerfile that builds a Docker image. The image contains all the dependencies the Python application requires, including Python itself.
+
+In your project directory, create a file named `Dockerfile` and paste the following: 
+```
+# syntax=docker/dockerfile:1
+FROM python:3.7-alpine
+WORKDIR /code
+ENV FLASK_APP=app.py
+ENV FLASK_RUN_HOST=0.0.0.0
+RUN apk add --no-cache gcc musl-dev linux-headers
+COPY requirements.txt requirements.txt
+RUN pip install -r requirements.txt
+EXPOSE 5000
+COPY . .
+CMD ["flask", "run"]
+```
+This tells Docker to:
+* Build an image starting with the Python 3.7 image.
+* Set the working directory to `/code`.
+* Set environment variables used by the `flask` command.
+* Install gcc and other dependencies
+* Copy `requirements.txt` and install the Python dependencies.
+* Add metadata to the image to describe that the container is listening on port 5000
+* Copy the current directory `.` in the project to the workdir `.` in the image.
+* Set the default command for the container to `flask run`.
