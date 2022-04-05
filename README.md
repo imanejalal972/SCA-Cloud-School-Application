@@ -96,6 +96,33 @@ This tells Docker to:
 * Copy the current directory `.` in the project to the workdir `.` in the image.
 * Set the default command for the container to `flask run`.
 
+### Step 3: Define services in a Compose file
+Create a file called `docker-compose.yml` in your project directory and paste the following:
+```
+version: "3.9"
+services:
+  web:
+    build: .
+    ports:
+      - "8000:5000"
+  redis:
+    image: "redis:alpine"
+```
+
+### Step 4: Build and run your app with Compose
+1. From your project directory, start up your application by running `docker-compose up`.
+
+![image](https://user-images.githubusercontent.com/78828566/161816274-4deb965a-447b-40d8-bcb4-15c347374abc.png)
+Compose pulls a Redis image, builds an image for your code, and starts the services you defined. In this case, the code is statically copied into the image at build time.
+
+2. Enter http://localhost:8000/ in a browser to see the application running. If this doesn’t resolve, you can also try http://127.0.0.1:8000.
+
+You should see a message in your browser saying:
+
+
+
+
+
 ![image](https://user-images.githubusercontent.com/78828566/161797124-583ff6ab-df66-4dde-b2b9-b2749074b31f.png)
 ![image](https://user-images.githubusercontent.com/78828566/161800321-22fe53e5-2b11-40cc-923e-59760516eb29.png)
 ![image](https://user-images.githubusercontent.com/78828566/161811461-9cfe4480-cee2-4a2f-a545-58e353784ac1.png)
