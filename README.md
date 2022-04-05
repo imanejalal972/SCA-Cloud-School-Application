@@ -45,3 +45,15 @@ She Code Africa Cloud School Program- Technical Assesment
 - Commit these changes to the repo into a branch called ``feature``and Merge your ``feature branch`` to the ``start branch`` ( _do not delete the feature branch_)
 - Push your final docker image to dockerhub (https://hub.docker.com/)
 - Your github repo ``Master`` branch should only have a readme file with instructions/documentaion used for your deployment and a link to your docker hub repository
+
+
+
+Exercise2 ==>
+###Step 1: Setup
+Define the application dependencies.
+ 1. Create a directory for the project:
+``` mkdir composetest
+ cd composetest
+         ```
+ 3. Create a file called app.py in your project directory and paste this in:
+ 4. Create another file called requirements.txt in your project directory and paste this in:
