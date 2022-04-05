@@ -54,5 +54,32 @@ Define the application dependencies. <br />
  1. Create a directory for the project:  <br />
 `mkdir composetest`  <br />
  `cd composetest` <br />
- 3. Create a file called app.py in your project directory and paste this in:
+ 2. Create a file called `app.py` in your project directory and paste this in:
+```
+import time
+
+import redis
+from flask import Flask
+
+app = Flask(__name__)
+cache = redis.Redis(host='redis', port=6379)
+
+def get_hit_count():
+    retries = 5
+    while True:
+        try:
+            return cache.incr('hits')
+        except redis.exceptions.ConnectionError as exc:
+            if retries == 0:
+                raise exc
+            retries -= 1
+            time.sleep(0.5)
+
+@app.route('/')
+def hello():
+    count = get_hit_count()
+    return 'Welcome to SCA Cloud School Application! I have been seen {} times.\n'.format(count)
+```
+![image](https://user-images.githubusercontent.com/78828566/161814097-07f8420d-ac39-4826-afb2-a47a486ad169.png)
+
  4. Create another file called requirements.txt in your project directory and paste this in:
